@@ -29,7 +29,7 @@
   <hr />
 
   <h4>4)컴포넌트 생명주기</h4>
-  <NewComponent v-if="isShow"/>
+  <NewComponent v-if="isShow" />
   <button @click="btnStatusToggle">컴포넌트 {{ status }}</button>
   <hr />
 </template>
@@ -37,7 +37,7 @@
 <script>
 /**
  * 날짜 : 2023/04/05
- * 이름 : 홍민준
+ * 이름 : 김철학
  * 내용 : Ch03.컴포넌트
  *
  * Component
@@ -56,7 +56,7 @@ import UComponent1 from "./components/sub3/UComponent1.vue";
 import UComponent2 from "./components/sub3/UComponent2.vue";
 import UComponent3 from "./components/sub3/UComponent3.vue";
 import UComponent5 from "./components/sub3/UComponent5.vue";
-import NewComponent from "./components/sub4/newComponent.vue";
+import NewComponent from "./components/sub4/NewComponent.vue";
 
 export default {
   name: "App",
@@ -83,22 +83,21 @@ export default {
     UComponent2,
     UComponent3,
     UComponent5,
-    NewComponent
-},
+    NewComponent,
+  },
   methods: {
     printValue: function (data) {
       this.value1 = data.name;
       this.value2 = data.age;
     },
-    btnStatusToggle: function(){
-      if(this.isShow){
+    btnStatusToggle: function () {
+      if (this.isShow) {
         this.isShow = false;
-        this.status = '생성';
-      }else{
+        this.status = "생성";
+      } else {
         this.isShow = true;
-        this.status = '제거';
+        this.status = "제거";
       }
-
     },
   },
 };
