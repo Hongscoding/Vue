@@ -1,4 +1,3 @@
-!
 <template>
   <h3>View</h3>
 </template>

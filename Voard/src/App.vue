@@ -3,9 +3,9 @@
 </template>
 
 <script setup>
-import axios from "axios";
 import { onBeforeMount } from "vue";
 import { useRouter } from "vue-router";
+import axios from "axios";
 import { useStore } from "vuex";
 
 const router = useRouter();
@@ -17,7 +17,7 @@ onBeforeMount(() => {
   if (accessToken != null) {
     axios
       .get("http://localhost:8080/Voard/user/auth", {
-        headers: { "X-AUTH-TOKEN": accessToken }, //헤더로 토큰 보내주기
+        headers: { "X-AUTH-TOKEN": accessToken },
       })
       .then((response) => {
         console.log(response);

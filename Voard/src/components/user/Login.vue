@@ -5,7 +5,7 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <v-card class="mx-auto mt-16" max-width="400">
+        <v-card class="mx-auto mt-10" max-width="400">
           <v-card-item>
             <v-card-title>로그인</v-card-title>
           </v-card-item>
@@ -21,7 +21,6 @@
                     v-model="user.uid"
                   ></v-text-field>
                   <v-text-field
-                    type="password"
                     label="비밀번호"
                     prepend-icon="mdi-lock"
                     variant="underlined"
@@ -30,13 +29,14 @@
                   ></v-text-field>
                 </v-col>
                 <v-col cols="4">
-                  <v-btn @click="btnLogin" block height="90" color="primary"
+                  <v-btn block height="90" color="primary" @click="btnLogin"
                     >로그인</v-btn
                   >
                 </v-col>
               </v-row>
             </v-container>
           </v-card-text>
+
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn @click="btnRegister">회원가입</v-btn>
@@ -44,13 +44,13 @@
         </v-card>
       </v-container>
     </v-main>
-    <v-footer app theme="dark">copyright &copy; Voard v1.8</v-footer>
+    <v-footer app theme="dark">copyright &copy;Voard v1.0</v-footer>
   </v-app>
 </template>
 <script setup>
+import { useRouter } from "vue-router";
 import axios from "axios";
 import { reactive } from "vue";
-import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 const router = useRouter();
@@ -70,8 +70,8 @@ const btnLogin = () => {
       const accessToken = response.data.accessToken;
       const user = response.data.user;
 
-      localStorage.setItem("accessToken", accessToken); // 로컬스토리지에 토큰 저장
-      userStore.dispatch("setUser", user); //스토어에 user 객체 정보 저장
+      localStorage.setItem("accessToken", accessToken);
+      userStore.dispatch("setUser", user);
 
       router.push("/list");
     })
